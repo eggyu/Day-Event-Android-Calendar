@@ -3,4 +3,63 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="pink200">#F48FB1</color>
+    <color name="pink">#F50057</color>
+    <color name="white">#FFF</color>
+    <color name="black">#000</color>
+    <color name="pinkTitle">#E91E63</color>
+    <color name="absents_gauche">#E76950</color>
+    <color name="presents_droite">#5BB519</color>
+    <color name="retart_en_haut">#FEC955</color>
+    <color name="colorBottomBar">#BDBDBD</color>
+    <color name="color_bottom">#9E9E9E</color>
+    <color name="colorLoading">#9E9E9E</color>
+    <color name="my_blue">#3B1293</color>
+    <color name="back_ground">#F4F4F4</color>
+    <color name="back_ground_absent_card">#88E45E49</color>
+    <color name="back_ground_retard_card">#88EEC755</color>
+    <color name="back_ground_select_card">#8838C331</color>
+    <color name="back_ground_hint">#525E6C</color>
+    <color name="color_button">#E91E63</color>
+    <color name="vouse_allez">#525E6C</color>
+    <color name="glissez_less">#525E6C</color>
+    <color name="color_hightlight">#E91E63</color>
+    <color name="color_check">#9B9BA3</color>
+    <color name="border_image">#03A9F4</color>
+    <color name="color_name_remember">#19DB9A</color>
+    <color name="title_group">#E91E63</color>
+    <color name="color_search">#438E19</color>
+    <color name="back_ground_click">#D1D1D1</color>
+    <color name="hint_color">#42000000</color>
+    <color name="warning_color">#000</color>
+    <color name="success_color">#D14E78</color>
+
+    <drawable name="color_click">#90CAF9</drawable>
+    <drawable name="color_select">#2962FF</drawable>
+
+    <color name="blue_grey">#607d8b</color>
+    <color name="emphasis">#31b6e7</color>
+    <color name="gray">#ffff4081</color>
+    <color name="green">#3F51B5</color>
+
+    <color name="circular_progress_default_progress">#7540EE</color>
+    <color name="circular_progress_default_background">#DFDFE4</color>
+    <color name="circular_progress_default_title">#7540EE</color>
+    <color name="circular_progress_default_subtitle">#DFDFE4</color>
+    <color name="event_color_01">#59dbe0</color>
+    <color name="event_color_02">#f57f68</color>
+    <color name="event_color_03">#87d288</color>
+    <color name="event_color_04">#f8b552</color>
+    <color name="toolbar">#efefef</color>
+    <color name="toolbar_text">#8f000000</color>
+    <color name="accent">#2789e4</color>
+
+    <color name="dialog">#E91E63</color>
+
+    <color name="dark_gray">#bbbbbb</color>
+    <color name="medium_gray">#cccccc</color>
+    <color name="light_gray">#dddddd</color>
+    <color name="medium_blue">#27a3d9</color>
+    <color name="dark_blue">#3fa0d4</color>
+    <color name="back_ground_s">#E6E91E63</color>
 </resources>

@@ -3,6 +3,7 @@ package com.mday.event;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements WeekPageAdapter.o
 
     @Override
     public void clickView(int poss) {
+        Toast.makeText(MainActivity.this,"Position"+poss,Toast.LENGTH_LONG).show();
 
     }
 }

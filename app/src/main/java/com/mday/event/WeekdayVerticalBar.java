@@ -255,9 +255,8 @@ public class WeekdayVerticalBar extends RelativeLayout implements View.OnTouchLi
                 @Override
                 public void onClick(View v) {
                     TextView text = v.findViewById(R.id.tv_time_courses);
-                    String s = null;
 
-                    s = output.format((item.getStartDatetime()) + " - " + output.format(item.getEndDatetime()));
+                    String s = output.format(item.getStartDatetime()) + "-" + output.format(item.getEndDatetime());
 
                     if (s.equals(text.getText())) {
                         CourseEvent itemcureent = item;

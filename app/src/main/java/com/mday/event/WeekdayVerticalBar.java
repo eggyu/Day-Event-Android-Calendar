@@ -32,7 +32,6 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 
-
 public class WeekdayVerticalBar extends RelativeLayout implements View.OnTouchListener, ScaleGestureDetector.OnScaleGestureListener {
 
     private int HOUR_HEIGHT;
@@ -121,7 +120,7 @@ public class WeekdayVerticalBar extends RelativeLayout implements View.OnTouchLi
         LinearLayout.LayoutParams bg2LayoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, HOUR_HEIGHT);
 
         LinearLayout.LayoutParams hourHeightLayoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, HOUR_HEIGHT);
-        LinearLayout.LayoutParams hourHeightLayoutParams2 = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, HOUR_HEIGHT/2-1);
+        LinearLayout.LayoutParams hourHeightLayoutParams2 = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, HOUR_HEIGHT / 2 - 1);
 
 
         //Drawable bgResource = getResources().getDrawable(R.drawable.bg_scheduler_repeat);
@@ -159,8 +158,8 @@ public class WeekdayVerticalBar extends RelativeLayout implements View.OnTouchLi
 //            if(i==Constants.END_HOUR){
 //                verticalHourCell.addView(hourHeightLayout, hourHeightLayoutParams2);
 //            }else {
-                verticalHourCell.addView(hourHeightLayout, hourHeightLayoutParams);
-           // }
+            verticalHourCell.addView(hourHeightLayout, hourHeightLayoutParams);
+            // }
 
 
         }
@@ -195,20 +194,18 @@ public class WeekdayVerticalBar extends RelativeLayout implements View.OnTouchLi
 //        layoutParamsOne.setMargins(0, Math.round(calculateHeightCurrentTime()), 0, 0);
 //        addView(viewOne, layoutParamsOne);
 
+        final SimpleDateFormat output = new SimpleDateFormat("HH'h'mm");
         for (final CourseEvent item : mItems) {
 //			if ((startDate.compareTo(item.getEndDate()) < 0 && startDate.compareTo(item.getStartDate()) >= 0)
 //					|| (startDate.compareTo(item.getStartDate()) < 0 && endDate.compareTo(item.getStartDate()) > 0)) {
             View view = null;
 
-            try {
-                if (sdf.parse(item.getEndDatetime()).before(Calendar.getInstance().getTime())) {
-                    view = LayoutInflater.from(getContext()).inflate(R.layout.item_current_time, this, false);
-                } else {
-                    view = LayoutInflater.from(getContext()).inflate(R.layout.item_courses_envent_4, this, false);
-                }
-            } catch (ParseException e) {
-                e.printStackTrace();
+            if (item.getEndDatetime().before(Calendar.getInstance().getTime())) {
+                view = LayoutInflater.from(getContext()).inflate(R.layout.item_current_time, this, false);
+            } else {
+                view = LayoutInflater.from(getContext()).inflate(R.layout.item_courses_envent_4, this, false);
             }
+
 
             RelativeLayout relativeLayout = view.findViewById(R.id.ln);
 
@@ -224,7 +221,7 @@ public class WeekdayVerticalBar extends RelativeLayout implements View.OnTouchLi
             tv_room_courses.setTypeface(helveticaRegular);
 
             tv_name_courses.setText(item.getNameEvent());
-            UtilsCourseEvent.initTimeCourse(tv_time_courses, item);
+            tv_time_courses.setText(output.format(item.getStartDatetime()) + "-" + output.format(item.getEndDatetime()));
             tv_class_name_courses.setText(item.getAddress());
             tv_room_courses.setText(item.getRoom());
 
@@ -246,8 +243,6 @@ public class WeekdayVerticalBar extends RelativeLayout implements View.OnTouchLi
 //				linearLayout.addView(imageView, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 //				linearLayout.addView(textView, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 
-            final SimpleDateFormat output = new SimpleDateFormat("HH'h'mm");
-
 
             LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, Math.round(calculateHeight(item)));
             relativeLayout.setGravity(Gravity.CENTER | Gravity.CENTER_VERTICAL);
@@ -261,11 +256,9 @@ public class WeekdayVerticalBar extends RelativeLayout implements View.OnTouchLi
                 public void onClick(View v) {
                     TextView text = v.findViewById(R.id.tv_time_courses);
                     String s = null;
-                    try {
-                        s = output.format(sdf.parse(item.getStartDatetime())) + " - " + output.format(sdf.parse(item.getEndDatetime()));
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
+
+                    s = output.format((item.getStartDatetime()) + " - " + output.format(item.getEndDatetime()));
+
                     if (s.equals(text.getText())) {
                         CourseEvent itemcureent = item;
                         int poss = mItems.indexOf(itemcureent);
@@ -288,11 +281,8 @@ public class WeekdayVerticalBar extends RelativeLayout implements View.OnTouchLi
 
         float sizeMinutes = (float) HOUR_HEIGHT / 60;
         int minutes = 0;
-        try {
-            minutes = (int) ((sdf.parse(item.getEndDatetime()).getTime() / 60000) - (sdf.parse(item.getStartDatetime()).getTime() / 60000));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        minutes = (int) (((item.getEndDatetime()).getTime() / 60000) - ((item.getStartDatetime()).getTime() / 60000));
+
 //        long diff = item.getEndDate().getTime() - item.getStartDate().getTime();
 //
 //        long diffSeconds = diff / 1000 % 60;
@@ -348,12 +338,8 @@ public class WeekdayVerticalBar extends RelativeLayout implements View.OnTouchLi
     private int calculateRow(CourseEvent item) {
         Calendar calendar = GregorianCalendar.getInstance();
 
-        try {
-            calendar.setTime(sdf.parse(item.getStartDatetime()));
-            Log.d("TAG", "calculateRow:= " + sdf.parse(item.getStartDatetime()));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        calendar.setTime(item.getStartDatetime());
+
         int hourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
 
         int minutesOfHour = calendar.get(Calendar.MINUTE);

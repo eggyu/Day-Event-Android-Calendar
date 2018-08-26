@@ -14,6 +14,8 @@
 package com.mday.event;
 
 
+import java.util.Date;
+
 /**
  * CourseEvent
  */
@@ -21,14 +23,14 @@ public class CourseEvent {
 
     private String nameEvent;
 
-    private String startDatetime;
+    private Date startDatetime;
 
-    private String endDatetime;
+    private Date endDatetime;
 
     private String room;
     private String address;
 
-    public CourseEvent(String nameEvent, String startDatetime, String endDatetime, String room, String address) {
+    public CourseEvent(String nameEvent, Date startDatetime, Date endDatetime, String room, String address) {
         this.nameEvent = nameEvent;
         this.startDatetime = startDatetime;
         this.endDatetime = endDatetime;
@@ -44,19 +46,19 @@ public class CourseEvent {
         this.nameEvent = nameEvent;
     }
 
-    public String getStartDatetime() {
+    public Date getStartDatetime() {
         return startDatetime;
     }
 
-    public void setStartDatetime(String startDatetime) {
+    public void setStartDatetime(Date startDatetime) {
         this.startDatetime = startDatetime;
     }
 
-    public String getEndDatetime() {
+    public Date getEndDatetime() {
         return endDatetime;
     }
 
-    public void setEndDatetime(String endDatetime) {
+    public void setEndDatetime(Date endDatetime) {
         this.endDatetime = endDatetime;
     }
 

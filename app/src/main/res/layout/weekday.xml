@@ -20,7 +20,7 @@
         android:scrollbarAlwaysDrawVerticalTrack="false"
         android:scrollbarStyle="insideOverlay"
         android:focusableInTouchMode="true">
-        <rollcall.popi.nz.view.customview.ZoomableRelativeLayout
+        <com.mday.event.ZoomableRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/zoom">
@@ -32,8 +32,8 @@
 
 
             </LinearLayout>
+        </com.mday.event.ZoomableRelativeLayout>
 
-        </rollcall.popi.nz.view.customview.ZoomableRelativeLayout>
 
     </ScrollView>
 
